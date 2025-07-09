@@ -165,9 +165,13 @@ const Orders = () => {
     }
 
     try {
-    const res = await userRequest(token).get(`orders/find/${user._id}`);
+    const res = await userRequest.get(`orders/find/${user._id}`, {
+      headers: {
+     token: `Bearer ${token}`,
+    },
+  });
 
-      const enrichedOrders = await Promise.all(res.data.map(async (order) => {
+    const enrichedOrders = await Promise.all(res.data.map(async (order) => {
         const products = await Promise.all(order.products.map(async (item) => {
           try {
             const pRes = await publicRequest.get(`products/${item.productId}`);
