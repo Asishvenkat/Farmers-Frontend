@@ -8,7 +8,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Wishlist from './Pages/wishlist';
 import Orders from './Pages/order';
-import ScrollToTop from "./components/Scroll";
+import ScrollToTop from "./components/scroll";
 import AddProduct from './Pages/farmers/add';
 import ViewProducts from './Pages/farmers/products';
 import UpdateProduct from './Pages/farmers/update';
