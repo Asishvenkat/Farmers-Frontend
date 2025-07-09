@@ -38,7 +38,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/farmer/products" element={<ViewProducts />} /> 
         <Route path="/farmer/add-product" element={<AddProduct />} />
-       <Route path="/orders" element={<Orders />} />
+       <Route path="/farmer/orders" element={<Orders />} />
        <Route path="/update-product/:id" element={<UpdateProduct />} />
       </Routes>
     </Router>
