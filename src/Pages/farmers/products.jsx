@@ -16,7 +16,7 @@ const FarmerProducts = () => {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem('farmerToken');
-      const response = await fetch('http://localhost:5000/api/products/farmer/my-products', {
+      const response = await fetch('https://farmers-backend-iota.vercel.app/api/products/farmer/my-products', {
         headers: {
           'token': `Bearer ${token}`
         }
@@ -40,7 +40,7 @@ const FarmerProducts = () => {
 
     try {
       const token = localStorage.getItem('farmerToken');
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const response = await fetch(`https://farmers-backend-iota.vercel.app/api/products/${id}`, {
         method: 'DELETE',
         headers: {
           'token': `Bearer ${token}`
