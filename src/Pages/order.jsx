@@ -7,6 +7,8 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { format } from "date-fns";
+import { publicRequest, userRequest } from "../requestMethods";
+
 
 // Styled Components
 const Container = styled.div``;
@@ -163,14 +165,12 @@ const Orders = () => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
-        headers: { token: `Bearer ${token}` },
-      });
+    const res = await userRequest(token).get(`orders/find/${user._id}`);
 
       const enrichedOrders = await Promise.all(res.data.map(async (order) => {
         const products = await Promise.all(order.products.map(async (item) => {
           try {
-            const pRes = await axios.get(`http://localhost:5000/api/products/${item.productId}`);
+            const pRes = await publicRequest.get(`products/${item.productId}`);
             const data = pRes.data;
             return {
               _id: data._id,
