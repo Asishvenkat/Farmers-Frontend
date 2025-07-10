@@ -205,33 +205,7 @@ const RetailerHomePage = () => {
           </DashboardCard>
         </DashboardGrid>
 
-        {/* <FeaturedSection>
-          <SectionTitle>🔥 Fresh Today</SectionTitle>
-          <FeaturedProducts>
-            <ProductCard>
-              <div style={{ fontSize: '2rem', marginBottom: '10px' }}>🥕</div>
-              <h4>Fresh Carrots</h4>
-              <p>₹40/kg</p>
-            </ProductCard>
-            <ProductCard>
-              <div style={{ fontSize: '2rem', marginBottom: '10px' }}>🥬</div>
-              <h4>Organic Lettuce</h4>
-              <p>₹60/kg</p>
-            </ProductCard>
-            <ProductCard>
-              <div style={{ fontSize: '2rem', marginBottom: '10px' }}>🍅</div>
-              <h4>Farm Tomatoes</h4>
-              <p>₹35/kg</p>
-            </ProductCard>
-            <ProductCard>
-              <div style={{ fontSize: '2rem', marginBottom: '10px' }}>🥔</div>
-              <h4>New Potatoes</h4>
-              <p>₹25/kg</p>
-            </ProductCard>
-          </FeaturedProducts>
-        </FeaturedSection> */}
-
-
+     
       </Container>
       <Footer />
     </>

@@ -3,8 +3,6 @@ import './App.css'
 import Cart from './Pages/Cart';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
-// import Product from './Pages/Product';
-//import ProductList from './Pages/ProductList';
 import Register from './Pages/Register';
 import Wishlist from './Pages/wishlist';
 import Orders from './Pages/order';
@@ -38,7 +36,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/farmer/products" element={<ViewProducts />} /> 
         <Route path="/farmer/add-product" element={<AddProduct />} />
-       <Route path="/farmer/orders" element={<Orders />} />
+       <Route path="/orders" element={<Orders />} />
        <Route path="/update-product/:id" element={<UpdateProduct />} />
       </Routes>
     </Router>

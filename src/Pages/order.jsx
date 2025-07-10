@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { format } from "date-fns";
@@ -216,7 +215,6 @@ const Orders = () => {
   return (
     <Container>
       <Navbar />
-      <Announcement />
       <Wrapper>
         <Title>MY ORDERS</Title>
 

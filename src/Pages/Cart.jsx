@@ -8,6 +8,7 @@ import { increaseQuantity, decreaseQuantity, clearCart } from "../redux/cartRedu
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../requestMethods";
 
 const Container = styled.div``;
 const Wrapper = styled.div`padding: 20px; ${mobile({ padding: "10px" })}`;
@@ -131,7 +132,7 @@ const Cart = () => {
 
   const proceedToPayment = async () => {
     try {
-      const orderUrl = "http://localhost:5000/api/payment/order";
+      const orderUrl = `${BASE_URL}/api/payment/order`;
       const { data } = await axios.post(orderUrl, {
         amount: cart.total * 100,
         currency: "INR",
@@ -146,7 +147,7 @@ const Cart = () => {
         order_id: data.id,
         handler: async function (response) {
           try {
-            const res = await axios.post("http://localhost:5000/api/payment/order/validate", {
+            const res = await axios.post(`${BASE_URL}/api/payment/order/validate`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
@@ -169,7 +170,7 @@ const Cart = () => {
                   orderId: response.razorpay_order_id,
                 };
 
-                await axios.post("http://localhost:5000/api/orders", orderData, {
+                await axios.post(`${BASE_URL}/api/orders`, orderData, {
                   headers: {
                     "token": currentUser.accessToken,
                     "Content-Type": "application/json"

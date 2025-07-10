@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Loader2, User, Mail, Shield } from 'lucide-react';
+import { BASE_URL } from '../requestMethods';
 
 const ModernRegister = () => {
   const [inputs, setInputs] = useState({
@@ -23,7 +24,7 @@ const ModernRegister = () => {
     setError("");
     
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
