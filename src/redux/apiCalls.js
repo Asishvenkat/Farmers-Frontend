@@ -15,6 +15,8 @@ export const login = async (dispatch, user) => {
       localStorage.setItem("retailerToken", accessToken);
     }
   } catch (err) {
-    dispatch(loginFailure());
-  }
+  console.error("Login failed:", err.response?.data || err.message || err);
+  dispatch(loginFailure());
+}
+
 };

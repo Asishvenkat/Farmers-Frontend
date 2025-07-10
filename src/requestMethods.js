@@ -1,16 +1,19 @@
+// requestMethods.js
 import axios from "axios";
 
 export const BASE_URL = "https://farmers-backend-iota.vercel.app/api/";
 
-
-// Safe token extraction
 let TOKEN = null;
+
 try {
-  const persistedRoot = JSON.parse(localStorage.getItem("persist:root"));
-  const user = persistedRoot ? JSON.parse(persistedRoot.user) : null;
-  TOKEN = user?.currentUser?.accessToken;
+  const root = localStorage.getItem("persist:root");
+  if (root) {
+    const user = JSON.parse(JSON.parse(root).user);
+    TOKEN = user?.currentUser?.accessToken || null;
+  }
 } catch (err) {
-  console.error("Token retrieval failed:", err);
+  console.warn("Token retrieval failed:", err.message);
+  TOKEN = null;
 }
 
 export const publicRequest = axios.create({
